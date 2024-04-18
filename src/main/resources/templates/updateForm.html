@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>수정화면</title>
+</head>
+<body>
+    <form th:action="@{/member/update}" method="post" th:object="${memberDto}">
+        <div>
+            <label for="id">ID : [[*{id}]]</label>
+        </div>
+        <div>
+            <label for="name">이름</label>
+            <input type="text" name="name" th:field="*{name}">
+            <span th:errors="*{name}"></span>
+        </div>
+        <div>
+            <label for="age">나이</label>
+            <input type="text" name="age" th:field="*{age}">
+            <span th:errors="*{age}"></span>
+        </div>
+        <div>
+            <label for="address">주소</label>
+            <input type="text" name="address" th:field="*{address}">
+            <span th:errors="*{address}"></span>
+        </div>
+        <input type="hidden" th:field="*{id}">
+        <input type="submit" value="수정">
+    </form>
+    <br>
+    <a th:href="@{/member/show}">메인화면으로 돌아가기</a>
+</body>
+</html>
